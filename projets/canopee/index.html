@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Canopée | Hack4Impact Polytechnique Montréal</title>
+  <meta name="description" content="Application de patrouille développée par Hack4Impact Polytechnique Montréal pour le réseau Canopée, à Laval.">
+  <link rel="preload" href="../../fonts/source-sans-3-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="../../index.html">
+        <picture>          <img src="../../assets/logo.svg" alt="Hack4Impact Polytechnique Montréal" width="193" height="44">
+        </picture>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="site-nav" aria-label="Navigation principale">
+        <a href="../../index.html">Accueil</a>
+        <a href="../index.html" aria-current="page">Projets</a>
+        <a href="../../a-propos/index.html">À propos</a>
+        <details class="apply-menu">
+          <summary class="btn btn-small btn-line">Appliquer <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="apply-panel">
+            <a href="../../index.html#etudiants"><b>Étudiant</b><span>Devenir membre</span></a>
+            <a href="../../index.html#organismes"><b>Organisme</b><span>Proposer un projet</span></a>
+          </div>
+        </details>
+      </nav>
+    </div>
+  </header>
+
+  <header class="sheet">
+
+    <div class="wrap sheet-inner">
+      <div class="sheet-top">
+        <button class="back" type="button" aria-label="Retour" onclick="history.back()">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+        </button>
+      </div>
+
+      <div class="sheet-main">
+        <div class="sheet-title">
+          <p class="label">Été 2026 - Projet initial</p>
+          <h1>Canopée - Le réseau des bois de Laval</h1>
+        </div>
+      </div>    </div>
+  </header>
+
+  <div class="wrap layout">
+
+    <aside class="legend">
+      <dl class="meta">
+        <div><dt class="label">Organisme</dt><dd><a href="https://www.reseaucanopee.org/fr/">Réseau Canopée</a></dd></div>
+        <div><dt class="label">Période</dt><dd>Juin à septembre 2026</dd></div>
+        <div><dt class="label">Plateformes</dt><dd>Web, iOS et Android</dd></div>
+      </dl>
+      <div class="legend-actions">
+        <a class="repo-btn" href="https://github.com/hack4impact/canopee-project/" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+          <span>GitHub</span>
+        </a>
+        <a class="repo-btn" href="https://app.reseaucanopee.org" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span>Voir l'application</span>
+        </a>
+      </div>
+      <nav class="index" aria-label="Sections">
+        <a href="#organisme">L'organisme</a>
+        <a href="#probleme">Le problème</a>
+        <a href="#demarche">Démarche</a>
+        <a href="#fonctionnalites">Fonctionnalités</a>
+        <a href="#technologies">Tech stack</a>
+        <a href="#defis">Défis</a>
+        <a href="#contributeurs">Contributeurs</a>
+      </nav>
+    </aside>
+
+    <main class="content">
+
+      <section id="organisme">
+        <h2>L'organisme</h2>
+        <div class="org-split">
+          <div class="org-text">
+            <p class="intro">Le réseau Canopée est un organisme de Laval qui protège et restaure les milieux naturels. Il plante des arbres, s'occupe de projets de conservation et fait de l'éducation à l'environnement.</p>
+            <p>L'organisme compte une petite équipe d'employés et des patrouilleurs bénévoles qui surveillent environ huit secteurs boisés.</p>
+          </div>
+          <div class="photo-frame">
+            <img src="assets/reseau-canopee.jpg" alt="Un employé de Canopée présente un panneau d'interprétation en forêt" width="768" height="513">
+          </div>
+        </div>
+      </section>
+
+      <section id="probleme">
+        <h2>Le problème</h2>
+        <p>Avant le projet, Canopée gérait ses patrouilles et ses signalements avec plusieurs outils séparés. Des fichiers Excel, un formulaire Google, les réseaux sociaux, Google Maps et les courriels.</p>
+        <p>Les parcours des patrouilles n'étaient pas enregistrés. Deux bénévoles pouvaient passer au même endroit la même journée pendant que d'autres secteurs restaient sans visite, et l'équipe n'avait aucune vue d'ensemble des zones les plus fréquentées.</p>
+        <p>Les signalements arrivaient par message ou par courriel, avec des photos mais sans format commun. Rien ne permettait de savoir si un problème avait été réglé. Les observations de faune et de flore étaient réparties dans plusieurs fichiers Excel, et les comptes des bénévoles étaient gérés à la main.</p>
+      </section>
+
+      <section id="demarche">
+        <h2>Démarche</h2>
+        <p>Le projet a commencé par des rencontres avec l'équipe de Canopée pour comprendre le travail des patrouilleurs. Ces besoins ont été rassemblés dans un product requirement document (PRD), où chaque fonctionnalité avait une estimation en heures et une priorité.</p>
+        <p>Le design a suivi en trois étapes. Un moodboard a d'abord fixé la direction visuelle, à partir de l'identité de Canopée. Des maquettes basse fidélité (lo-fi) ont ensuite servi à placer les écrans et à valider les parcours avec l'organisme. Les maquettes haute fidélité (hi-fi) ont enfin précisé les couleurs, la typographie et les composants avant le développement.</p>
+        <p>Le développement s'est fait par sprints. Chaque pull request passait par une revue de code, et des tests automatisés ont été écrits avec Vitest. Le schéma de la base de données a été conçu en premier, puis la carte, les patrouilles et les signalements ont été ajoutés un à un.</p>
+        <p>Des versions iOS et Android ont ensuite été développées pour résoudre les limites de la version web, comme le suivi GPS qui s'arrête lorsque l'écran est verrouillé.</p>
+      </section>
+
+      <section id="fonctionnalites">
+        <h2>Fonctionnalités</h2>
+        <p class="intro">L'application a trois grandes parties. Les patrouilles, les signalements et l'administration.</p>
+
+        <div class="feature-tabs" role="tablist" aria-label="Fonctionnalités">
+          <button type="button" role="tab" id="tab-carte" aria-controls="panel-carte" aria-selected="true"><b>Carte</b><span>Secteurs boisés et carte de chaleur</span></button>
+          <button type="button" role="tab" id="tab-signalements" aria-controls="panel-signalements" aria-selected="false" tabindex="-1"><b>Signalements</b><span>Entretien, citoyen, faune et flore</span></button>
+          <button type="button" role="tab" id="tab-patrouilles" aria-controls="panel-patrouilles" aria-selected="false" tabindex="-1"><b>Patrouilles</b><span>Tracé GPS, durée et distance</span></button>
+          <button type="button" role="tab" id="tab-administration" aria-controls="panel-administration" aria-selected="false" tabindex="-1"><b>Administration</b><span>Comptes, rôles et suivi</span></button>
+        </div>
+
+        <div class="feature-panel" role="tabpanel" id="panel-carte" aria-labelledby="tab-carte">
+          <div class="phone">
+            <div class="screen">
+              <span class="island"></span>
+              <span class="status" style="background: rgb(198, 223, 177)"><span>9:41</span><svg viewBox="0 0 70 12" fill="currentColor" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx=".7"/><rect x="4.5" y="6" width="3" height="6" rx=".7"/><rect x="9" y="3.5" width="3" height="8.5" rx=".7"/><rect x="13.5" y="1" width="3" height="11" rx=".7"/><path d="M29.5 2.3c2.3 0 4.4.9 6 2.4l1.2-1.3A10.3 10.3 0 0 0 29.5.5c-2.8 0-5.3 1.1-7.2 2.9l1.2 1.3c1.6-1.5 3.7-2.4 6-2.4Zm0 3.6c1.3 0 2.5.5 3.4 1.3l1.2-1.3a6.7 6.7 0 0 0-9.2 0l1.2 1.3c.9-.8 2.1-1.3 3.4-1.3Zm0 3.5a3 3 0 0 0-2.2.9l2.2 2.3 2.2-2.3a3 3 0 0 0-2.2-.9Z"/><rect x="44" y="1" width="21.5" height="10" rx="3" fill="none" stroke="currentColor" stroke-opacity=".45"/><rect x="45.8" y="2.8" width="17.9" height="6.4" rx="1.6"/><path d="M67 4.3v3.4c.8-.3 1.3-1 1.3-1.7s-.5-1.4-1.3-1.7Z" fill-opacity=".45"/></svg></span>
+              <img src="assets/ecrans/carte.webp" alt="Carte des signalements à Laval" width="786" height="1596">
+              <span class="home-bar"></span>
+            </div>
+          </div>
+          <div class="feature-text">
+            <h3>Carte</h3>
+            <p>La carte affiche les secteurs boisés, les signalements ouverts et une carte de chaleur des zones où les bénévoles passent le plus souvent. Les signalements peuvent être filtrés par catégorie, et les administrateurs peuvent aussi filtrer par période.</p>
+            <p>Les observations de faune et de flore sont visibles seulement pour les employés, pour ne pas rendre public l'emplacement d'espèces menacées.</p>
+          </div>
+        </div>
+
+        <div class="feature-panel" role="tabpanel" id="panel-signalements" aria-labelledby="tab-signalements" hidden>
+          <div class="phone light">
+            <div class="screen">
+              <span class="island"></span>
+              <span class="status" style="background: rgb(117, 161, 119)"><span>9:41</span><svg viewBox="0 0 70 12" fill="currentColor" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx=".7"/><rect x="4.5" y="6" width="3" height="6" rx=".7"/><rect x="9" y="3.5" width="3" height="8.5" rx=".7"/><rect x="13.5" y="1" width="3" height="11" rx=".7"/><path d="M29.5 2.3c2.3 0 4.4.9 6 2.4l1.2-1.3A10.3 10.3 0 0 0 29.5.5c-2.8 0-5.3 1.1-7.2 2.9l1.2 1.3c1.6-1.5 3.7-2.4 6-2.4Zm0 3.6c1.3 0 2.5.5 3.4 1.3l1.2-1.3a6.7 6.7 0 0 0-9.2 0l1.2 1.3c.9-.8 2.1-1.3 3.4-1.3Zm0 3.5a3 3 0 0 0-2.2.9l2.2 2.3 2.2-2.3a3 3 0 0 0-2.2-.9Z"/><rect x="44" y="1" width="21.5" height="10" rx="3" fill="none" stroke="currentColor" stroke-opacity=".45"/><rect x="45.8" y="2.8" width="17.9" height="6.4" rx="1.6"/><path d="M67 4.3v3.4c.8-.3 1.3-1 1.3-1.7s-.5-1.4-1.3-1.7Z" fill-opacity=".45"/></svg></span>
+              <img src="assets/ecrans/signaler-faune.webp" alt="Formulaire de signalement pour la faune et la flore" width="786" height="1596">
+              <span class="home-bar"></span>
+            </div>
+          </div>
+          <div class="feature-text">
+            <h3>Signalements</h3>
+            <p>Il y a trois types de signalements. Entretien, par exemple un arbre dangereux ou un sentier bloqué. Citoyen, par exemple un chien sans laisse ou un feu de camp. Faune et flore, pour noter une espèce observée. La position est ajoutée automatiquement et chaque signalement reçoit un numéro.</p>
+            <p>Pour la faune et la flore, la liste des espèces à statut du ministère est intégrée. Une espèce peut être cherchée par son nom commun ou son nom scientifique. Les citoyens peuvent aussi faire un signalement sans compte.</p>
+          </div>
+        </div>
+
+        <div class="feature-panel" role="tabpanel" id="panel-patrouilles" aria-labelledby="tab-patrouilles" hidden>
+          <div class="phone">
+            <div class="screen">
+              <span class="island"></span>
+              <span class="status" style="background: rgb(247, 244, 223)"><span>9:41</span><svg viewBox="0 0 70 12" fill="currentColor" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx=".7"/><rect x="4.5" y="6" width="3" height="6" rx=".7"/><rect x="9" y="3.5" width="3" height="8.5" rx=".7"/><rect x="13.5" y="1" width="3" height="11" rx=".7"/><path d="M29.5 2.3c2.3 0 4.4.9 6 2.4l1.2-1.3A10.3 10.3 0 0 0 29.5.5c-2.8 0-5.3 1.1-7.2 2.9l1.2 1.3c1.6-1.5 3.7-2.4 6-2.4Zm0 3.6c1.3 0 2.5.5 3.4 1.3l1.2-1.3a6.7 6.7 0 0 0-9.2 0l1.2 1.3c.9-.8 2.1-1.3 3.4-1.3Zm0 3.5a3 3 0 0 0-2.2.9l2.2 2.3 2.2-2.3a3 3 0 0 0-2.2-.9Z"/><rect x="44" y="1" width="21.5" height="10" rx="3" fill="none" stroke="currentColor" stroke-opacity=".45"/><rect x="45.8" y="2.8" width="17.9" height="6.4" rx="1.6"/><path d="M67 4.3v3.4c.8-.3 1.3-1 1.3-1.7s-.5-1.4-1.3-1.7Z" fill-opacity=".45"/></svg></span>
+              <img src="assets/ecrans/patrouille.webp" alt="Écran d'une patrouille terminée avec son tracé GPS" width="786" height="1596">
+              <span class="home-bar"></span>
+            </div>
+          </div>
+          <div class="feature-text">
+            <h3>Patrouilles</h3>
+            <p>Le patrouilleur appuie sur un bouton pour commencer sa patrouille. L'application enregistre sa position pendant qu'il marche. À la fin, il voit la durée, la distance et le tracé. Les patrouilles en cours des autres bénévoles sont aussi visibles sur la carte.</p>
+            <p>Sur iOS et Android, l'enregistrement continue même quand l'écran est verrouillé. S'il n'y a pas de réseau, les points sont gardés sur le téléphone et envoyés plus tard.</p>
+          </div>
+        </div>
+
+        <div class="feature-panel" role="tabpanel" id="panel-administration" aria-labelledby="tab-administration" hidden>
+          <div class="phone">
+            <div class="screen">
+              <span class="island"></span>
+              <span class="status" style="background: rgb(246, 244, 223)"><span>9:41</span><svg viewBox="0 0 70 12" fill="currentColor" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx=".7"/><rect x="4.5" y="6" width="3" height="6" rx=".7"/><rect x="9" y="3.5" width="3" height="8.5" rx=".7"/><rect x="13.5" y="1" width="3" height="11" rx=".7"/><path d="M29.5 2.3c2.3 0 4.4.9 6 2.4l1.2-1.3A10.3 10.3 0 0 0 29.5.5c-2.8 0-5.3 1.1-7.2 2.9l1.2 1.3c1.6-1.5 3.7-2.4 6-2.4Zm0 3.6c1.3 0 2.5.5 3.4 1.3l1.2-1.3a6.7 6.7 0 0 0-9.2 0l1.2 1.3c.9-.8 2.1-1.3 3.4-1.3Zm0 3.5a3 3 0 0 0-2.2.9l2.2 2.3 2.2-2.3a3 3 0 0 0-2.2-.9Z"/><rect x="44" y="1" width="21.5" height="10" rx="3" fill="none" stroke="currentColor" stroke-opacity=".45"/><rect x="45.8" y="2.8" width="17.9" height="6.4" rx="1.6"/><path d="M67 4.3v3.4c.8-.3 1.3-1 1.3-1.7s-.5-1.4-1.3-1.7Z" fill-opacity=".45"/></svg></span>
+              <img src="assets/ecrans/profil.webp" alt="Page de profil avec les outils d'administration" width="786" height="1596">
+              <span class="home-bar"></span>
+            </div>
+          </div>
+          <div class="feature-text">
+            <h3>Administration</h3>
+            <p>Quand un bénévole crée un compte, un administrateur doit l'approuver. Les employés peuvent marquer un signalement comme résolu. Il n'apparaît plus sur la carte mais il reste dans la base de données.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="technologies">
+        <h2>Tech stack</h2>
+        <div class="scroll">
+          <table class="stack-table">
+            <thead>
+              <tr><th scope="col" class="label">Catégorie</th><th scope="col" class="label">Outils</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Interface</th><td>Next.js, React, TypeScript, Tailwind CSS</td></tr>
+              <tr><th scope="row">Données</th><td>Supabase, PostgreSQL, Drizzle</td></tr>
+              <tr><th scope="row">Carte</th><td>Mapbox</td></tr>
+              <tr><th scope="row">Mobile</th><td>Capacitor, Swift, Java</td></tr>
+              <tr><th scope="row">Hébergement</th><td>Vercel</td></tr>
+              <tr><th scope="row">Tests</th><td>Vitest</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="defis">
+        <h2>Défis</h2>
+        <div class="lessons">
+          <div>
+            <h3>Réseau en forêt</h3>
+            <p>Le réseau est souvent mauvais dans les boisés. Il a fallu gérer le mode hors ligne pour les patrouilles et les signalements.</p>
+          </div>
+          <div>
+            <h3>Précision du GPS</h3>
+            <p>Certaines positions sont décalées de plusieurs dizaines de mètres. Les points trop imprécis sont filtrés pour garder des tracés propres.</p>
+          </div>
+          <div>
+            <h3>Suivi en arrière-plan</h3>
+            <p>iOS et Android arrêtent souvent les applications qui tournent en arrière-plan. Du code natif en Swift et en Java a été nécessaire pour que l'enregistrement de la patrouille continue avec l'écran verrouillé.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contributeurs">
+        <h2>Contributeurs</h2>
+        <ul class="people">
+          <li class="person">
+            <span class="person-name">Anis Benabdallah</span>
+            <span class="icon-links">
+              <a class="icon-link" href="https://github.com/anis022" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Anis Benabdallah"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+              <a class="icon-link" href="https://www.linkedin.com/search/results/people/?keywords=Anis%20Benabdallah" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Anis Benabdallah"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M0 1.15C0 .51.53 0 1.18 0h13.64C15.47 0 16 .51 16 1.15v13.7c0 .64-.53 1.15-1.18 1.15H1.18C.53 16 0 15.49 0 14.85V1.15zm4.94 12.25V6.17H2.54v7.23h2.4zM3.74 5.18c.84 0 1.36-.55 1.36-1.25-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .7.52 1.25 1.33 1.25h.01zm4.91 8.22V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.64v3.87h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.28 0-1.85.7-2.17 1.19v.03h-.01l.01-.03V6.17h-2.4c.03.68 0 7.23 0 7.23h2.4z"/></svg></a>
+            </span>
+          </li>
+          <li class="person">
+            <span class="person-name">Laurie Chammah</span>
+            <span class="icon-links">
+              <a class="icon-link" href="https://github.com/lauriechammah" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Laurie Chammah"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+              <a class="icon-link" href="https://www.linkedin.com/search/results/people/?keywords=Laurie%20Chammah" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Laurie Chammah"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M0 1.15C0 .51.53 0 1.18 0h13.64C15.47 0 16 .51 16 1.15v13.7c0 .64-.53 1.15-1.18 1.15H1.18C.53 16 0 15.49 0 14.85V1.15zm4.94 12.25V6.17H2.54v7.23h2.4zM3.74 5.18c.84 0 1.36-.55 1.36-1.25-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .7.52 1.25 1.33 1.25h.01zm4.91 8.22V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.64v3.87h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.28 0-1.85.7-2.17 1.19v.03h-.01l.01-.03V6.17h-2.4c.03.68 0 7.23 0 7.23h2.4z"/></svg></a>
+            </span>
+          </li>
+          <li class="person">
+            <span class="person-name">Jérémie Anglaret-Guirguis</span>
+            <span class="icon-links">
+              <a class="icon-link" href="https://github.com/JeremieAG" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Jérémie Anglaret-Guirguis"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+              <a class="icon-link" href="https://www.linkedin.com/search/results/people/?keywords=J%C3%A9r%C3%A9mie%20Anglaret-Guirguis" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Jérémie Anglaret-Guirguis"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M0 1.15C0 .51.53 0 1.18 0h13.64C15.47 0 16 .51 16 1.15v13.7c0 .64-.53 1.15-1.18 1.15H1.18C.53 16 0 15.49 0 14.85V1.15zm4.94 12.25V6.17H2.54v7.23h2.4zM3.74 5.18c.84 0 1.36-.55 1.36-1.25-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .7.52 1.25 1.33 1.25h.01zm4.91 8.22V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.64v3.87h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.28 0-1.85.7-2.17 1.19v.03h-.01l.01-.03V6.17h-2.4c.03.68 0 7.23 0 7.23h2.4z"/></svg></a>
+            </span>
+          </li>
+          <li class="person">
+            <span class="person-name">Marc Abou-Saada</span>
+            <span class="icon-links">
+              <a class="icon-link" href="https://github.com/marccsaada" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Marc Abou-Saada"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+              <a class="icon-link" href="https://www.linkedin.com/search/results/people/?keywords=Marc%20Abou-Saada" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Marc Abou-Saada"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M0 1.15C0 .51.53 0 1.18 0h13.64C15.47 0 16 .51 16 1.15v13.7c0 .64-.53 1.15-1.18 1.15H1.18C.53 16 0 15.49 0 14.85V1.15zm4.94 12.25V6.17H2.54v7.23h2.4zM3.74 5.18c.84 0 1.36-.55 1.36-1.25-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .7.52 1.25 1.33 1.25h.01zm4.91 8.22V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.64v3.87h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.28 0-1.85.7-2.17 1.19v.03h-.01l.01-.03V6.17h-2.4c.03.68 0 7.23 0 7.23h2.4z"/></svg></a>
+            </span>
+          </li>
+          <li class="person">
+            <span class="person-name">Yanis Ben Boudaoud</span>
+            <span class="icon-links">
+              <a class="icon-link" href="https://github.com/search?q=Yanis%20Ben%20Boudaoud&amp;type=users" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Yanis Ben Boudaoud"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+              <a class="icon-link" href="https://www.linkedin.com/search/results/people/?keywords=Yanis%20Ben%20Boudaoud" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Yanis Ben Boudaoud"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M0 1.15C0 .51.53 0 1.18 0h13.64C15.47 0 16 .51 16 1.15v13.7c0 .64-.53 1.15-1.18 1.15H1.18C.53 16 0 15.49 0 14.85V1.15zm4.94 12.25V6.17H2.54v7.23h2.4zM3.74 5.18c.84 0 1.36-.55 1.36-1.25-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .7.52 1.25 1.33 1.25h.01zm4.91 8.22V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.64v3.87h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.28 0-1.85.7-2.17 1.19v.03h-.01l.01-.03V6.17h-2.4c.03.68 0 7.23 0 7.23h2.4z"/></svg></a>
+            </span>
+          </li>
+          <li class="person">
+            <span class="person-name">Florence Paré Ricard</span>
+            <span class="icon-links">
+              <a class="icon-link" href="https://github.com/search?q=Florence%20Par%C3%A9%20Ricard&amp;type=users" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Florence Paré Ricard"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+              <a class="icon-link" href="https://www.linkedin.com/search/results/people/?keywords=Florence%20Par%C3%A9%20Ricard" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Florence Paré Ricard"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M0 1.15C0 .51.53 0 1.18 0h13.64C15.47 0 16 .51 16 1.15v13.7c0 .64-.53 1.15-1.18 1.15H1.18C.53 16 0 15.49 0 14.85V1.15zm4.94 12.25V6.17H2.54v7.23h2.4zM3.74 5.18c.84 0 1.36-.55 1.36-1.25-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .7.52 1.25 1.33 1.25h.01zm4.91 8.22V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.64v3.87h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.28 0-1.85.7-2.17 1.19v.03h-.01l.01-.03V6.17h-2.4c.03.68 0 7.23 0 7.23h2.4z"/></svg></a>
+            </span>
+          </li>
+          <li class="person">
+            <span class="person-name">Victor Morency</span>
+            <span class="icon-links">
+              <a class="icon-link" href="https://github.com/search?q=Victor%20Morency&amp;type=users" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Victor Morency"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+              <a class="icon-link" href="https://www.linkedin.com/search/results/people/?keywords=Victor%20Morency" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Victor Morency"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M0 1.15C0 .51.53 0 1.18 0h13.64C15.47 0 16 .51 16 1.15v13.7c0 .64-.53 1.15-1.18 1.15H1.18C.53 16 0 15.49 0 14.85V1.15zm4.94 12.25V6.17H2.54v7.23h2.4zM3.74 5.18c.84 0 1.36-.55 1.36-1.25-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .7.52 1.25 1.33 1.25h.01zm4.91 8.22V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.64v3.87h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.28 0-1.85.7-2.17 1.19v.03h-.01l.01-.03V6.17h-2.4c.03.68 0 7.23 0 7.23h2.4z"/></svg></a>
+            </span>
+          </li>
+          <li class="person">
+            <span class="person-name">Annie Liu</span>
+            <span class="icon-links">
+              <a class="icon-link" href="https://github.com/jspngl" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Annie Liu"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+              <a class="icon-link" href="https://www.linkedin.com/search/results/people/?keywords=Annie%20Liu" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Annie Liu"><svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M0 1.15C0 .51.53 0 1.18 0h13.64C15.47 0 16 .51 16 1.15v13.7c0 .64-.53 1.15-1.18 1.15H1.18C.53 16 0 15.49 0 14.85V1.15zm4.94 12.25V6.17H2.54v7.23h2.4zM3.74 5.18c.84 0 1.36-.55 1.36-1.25-.02-.71-.52-1.25-1.34-1.25-.82 0-1.36.54-1.36 1.25 0 .7.52 1.25 1.33 1.25h.01zm4.91 8.22V9.36c0-.22.02-.43.08-.59.17-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.64v3.87h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.28 0-1.85.7-2.17 1.19v.03h-.01l.01-.03V6.17h-2.4c.03.68 0 7.23 0 7.23h2.4z"/></svg></a>
+            </span>
+          </li>
+        </ul>
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="site-footer" id="contact">
+    <div class="wrap footer-grid">
+      <div class="footer-main">
+        <img class="footer-logo" src="../../assets/logo-clair.svg" alt="Hack4Impact Polytechnique Montréal" width="193" height="44">
+        <div class="transparency-row">
+          <a class="transparency-badge" href="https://app.candid.org/profile/9565390/hack4impact-81-0790890" target="_blank" rel="noopener noreferrer" aria-label="Profil Candid de Hack for Impact">
+            <img src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/9565390/svg" alt="Sceau de transparence Candid" width="80" height="80">
+          </a>
+          <div class="transparency-note">
+            <p><strong>EIN</strong> 81-0790890</p>
+            <p>Hack4Impact Polytechnique Montréal est un chapitre de <a href="https://www.hack4impact.org" target="_blank" rel="noopener noreferrer">Hack for Impact</a>, un organisme à but non lucratif 501(c)(3) engagé envers la transparence.</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <p class="label">Site</p>
+        <a href="../../a-propos/index.html">À propos</a>
+        <a href="../index.html">Projets</a>
+        <a href="../../index.html#organismes">Organismes</a>
+        <a href="../../index.html#etudiants">Étudiants</a>
+      </div>
+      <div class="footer-links">
+        <p class="label">Réseaux sociaux</p>
+        <a class="social-link" href="https://github.com/orgs/hack4impact/teams/polytechnique-montreal" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+        <a class="social-link" href="https://www.instagram.com/hack4impactpolymtl/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+      </div>
+      <div class="footer-legal">
+        <span>© 2026 Hack4Impact Polytechnique Montréal</span>
+        <span class="legal-right"><span>Montréal, QC</span><a class="lang-toggle" href="../../en/projects/canopee/index.html" hreflang="en" lang="en">English</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="../../menu.js"></script>
+</body>
+</html>

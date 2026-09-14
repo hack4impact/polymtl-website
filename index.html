@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hack4Impact Polytechnique Montréal</title>
+  <meta name="description" content="Des étudiants de Polytechnique Montréal développent des applications web et mobiles pour des organismes à but non lucratif.">
+  <link rel="preload" href="fonts/source-sans-3-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="index.html">
+        <picture>          <img src="assets/logo.svg" alt="Hack4Impact Polytechnique Montréal" width="193" height="44">
+        </picture>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="site-nav" aria-label="Navigation principale">
+        <a href="index.html" aria-current="page">Accueil</a>
+        <a href="projets/index.html">Projets</a>
+        <a href="a-propos/index.html">À propos</a>
+        <details class="apply-menu">
+          <summary class="btn btn-small btn-line">Appliquer <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="apply-panel">
+            <a href="#etudiants"><b>Étudiant</b><span>Devenir membre</span></a>
+            <a href="#organismes"><b>Organisme</b><span>Proposer un projet</span></a>
+          </div>
+        </details>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="wrap hero">
+      <div class="hero-text">
+        <p class="label accent">Chapitre étudiant de Hack4Impact</p>
+        <h1>Applications web et mobiles pour des organismes à but non lucratif</h1>
+        <p class="lead">Hack4Impact Polytechnique Montréal regroupe des étudiants de Polytechnique qui développent des applications web et mobiles pour des organismes à but non lucratif.</p>
+        <p class="lead">Les étudiants et les organismes intéressés peuvent contacter le chapitre.</p>
+        <div class="actions">
+          <a class="btn" href="#organismes">Proposer un projet</a>
+          <a class="btn btn-line" href="#etudiants">Devenir membre</a>
+        </div>
+      </div>
+
+      <div class="browser">
+        <div class="browser-bar">
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-dot"></span>
+          <span class="browser-url">app.reseaucanopee.org</span>
+        </div>
+        <a class="browser-view" href="projets/canopee/index.html">
+          <img class="preview-img" src="projets/canopee/assets/apercu.jpg" alt="" width="1200" height="800">
+          <span class="chip">Dernier projet</span>
+          <span class="browser-body">
+            <span class="browser-title">Canopée</span>
+            <span class="browser-sub">Application de patrouille pour le réseau Canopée, à Laval.</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="block" id="organismes">
+      <div class="wrap block-inner split">
+        <div class="block-head">
+          <p class="label accent">Organismes</p>
+          <h2>Pour les organismes</h2>
+          <p class="lede">Un organisme qui a besoin d'un site web, d'une application ou d'un outil pour gérer ses données peut confier le projet à une équipe d'étudiants.</p>
+          <p class="lede">Une fois terminé, l'outil appartient à l'organisme, qui reçoit le code et la documentation.</p>
+          <a class="btn" href="#contact">Proposer un projet</a>
+        </div>
+
+        <ol class="steps">
+          <li>
+            <span class="step-num">01</span>
+            <div>
+              <h3>Premier appel</h3>
+              <p>Une première rencontre sert à comprendre l'organisme et ses besoins.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">02</span>
+            <div>
+              <h3>Plan du projet</h3>
+              <p>La liste des fonctionnalités est rédigée avec l'organisme, puis classée par priorité.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">03</span>
+            <div>
+              <h3>Design et développement</h3>
+              <p>L'équipe conçoit les maquettes puis développe l'outil, en le présentant à l'organisme au fur et à mesure pour recueillir ses commentaires.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step-num">04</span>
+            <div>
+              <h3>Livraison</h3>
+              <p>L'outil est mis en ligne et l'équipe de l'organisme apprend à l'utiliser.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="block" id="etudiants">
+      <div class="wrap block-inner split">
+        <div class="block-head">
+          <p class="label accent">Étudiants</p>
+          <h2>Pour les étudiants</h2>
+          <p class="lede">Le chapitre recrute des étudiants de Polytechnique de tous les programmes pour des postes de développeur, de designer et de chef de projet.</p>
+          <p class="lede">Les membres travaillent en petite équipe sur un vrai projet, avec un vrai organisme.</p>
+          <a class="btn btn-line" href="#contact">Devenir membre</a>
+        </div>
+
+        <dl class="faq">
+          <div>
+            <dt>Est-ce qu'il faut de l'expérience?</dt>
+            <dd>Pas nécessairement. Les postes de responsable technique demandent quelques cours de programmation. Pour les autres postes, la motivation compte le plus.</dd>
+          </div>
+          <div>
+            <dt>Combien de temps ça prend?</dt>
+            <dd>Entre 5 et 10 heures par semaine, en comptant les réunions d'équipe, le développement et les rencontres avec l'organisme.</dd>
+          </div>
+          <div>
+            <dt>Quand est-ce que le recrutement ouvre?</dt>
+            <dd>Les étudiants intéressés peuvent contacter le chapitre pour être avertis de l'ouverture du recrutement.</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="wrap footer-grid">
+      <div class="footer-main">
+        <img class="footer-logo" src="assets/logo-clair.svg" alt="Hack4Impact Polytechnique Montréal" width="193" height="44">
+        <div class="transparency-row">
+          <a class="transparency-badge" href="https://app.candid.org/profile/9565390/hack4impact-81-0790890" target="_blank" rel="noopener noreferrer" aria-label="Profil Candid de Hack for Impact">
+            <img src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/9565390/svg" alt="Sceau de transparence Candid" width="80" height="80">
+          </a>
+          <div class="transparency-note">
+            <p><strong>EIN</strong> 81-0790890</p>
+            <p>Hack4Impact Polytechnique Montréal est un chapitre de <a href="https://www.hack4impact.org" target="_blank" rel="noopener noreferrer">Hack for Impact</a>, un organisme à but non lucratif 501(c)(3) engagé envers la transparence.</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <p class="label">Site</p>
+        <a href="a-propos/index.html">À propos</a>
+        <a href="projets/index.html">Projets</a>
+        <a href="#organismes">Organismes</a>
+        <a href="#etudiants">Étudiants</a>
+      </div>
+      <div class="footer-links">
+        <p class="label">Réseaux sociaux</p>
+        <a class="social-link" href="https://github.com/orgs/hack4impact/teams/polytechnique-montreal" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+        <a class="social-link" href="https://www.instagram.com/hack4impactpolymtl/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+      </div>
+      <div class="footer-legal">
+        <span>© 2026 Hack4Impact Polytechnique Montréal</span>
+        <span class="legal-right"><span>Montréal, QC</span><a class="lang-toggle" href="en/index.html" hreflang="en" lang="en">English</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="menu.js"></script>
+</body>
+</html>
