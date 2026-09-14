@@ -1157,7 +1157,7 @@ h3 {
 .transparency-badge img {
   display: block;
   width: auto;
-  height: 72px;
+  height: 110px;
 }
 
 .transparency-note {
@@ -1304,7 +1304,7 @@ h3 {
   }
 
   .transparency-badge img {
-    height: 56px;
+    height: 88px;
   }
 }
 
