@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Devenir membre | Hack4Impact Polytechnique Montréal</title>
+  <meta name="description" content="Formulaire de candidature pour rejoindre Hack4Impact Polytechnique Montréal.">
+  <link rel="preload" href="../fonts/source-sans-3-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="logo" href="../index.html">
+        <picture>          <img src="../assets/logo.svg" alt="Hack4Impact Polytechnique Montréal" width="193" height="44">
+        </picture>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
+      <nav class="nav" id="site-nav" aria-label="Navigation principale">
+        <a href="../index.html">Accueil</a>
+        <a href="../projets/index.html">Projets</a>
+        <a href="../a-propos/index.html">À propos</a>
+        <details class="apply-menu">
+          <summary class="btn btn-small btn-line">Appliquer <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+          <div class="apply-panel">
+            <a href="index.html" aria-current="page"><b>Étudiant</b><span>Devenir membre</span></a>
+            <a href="../index.html#organismes"><b>Organisme</b><span>Proposer un projet</span></a>
+          </div>
+        </details>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="wrap apply-page">
+      <div class="block-head">
+        <p class="label accent">Étudiants</p>
+        <h1 class="page-title">Devenir membre</h1>
+        <p class="lead">Le chapitre recrute des développeurs, des designers et des chefs de projet. Chaque candidature est lue par le comité exécutif, qui fait ensuite un suivi par courriel.</p>
+      </div>
+
+      <form class="apply-form" action="/api/apply" method="post" enctype="multipart/form-data" novalidate>
+        <div class="form-trap" aria-hidden="true">
+          <label for="site_web">Site web</label>
+          <input id="site_web" name="site_web" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <fieldset class="form-group">
+          <legend>Identité</legend>
+          <div class="field">
+            <label for="prenom">Prénom</label>
+            <input id="prenom" name="prenom" type="text" autocomplete="given-name" required>
+          </div>
+          <div class="field">
+            <label for="nom">Nom</label>
+            <input id="nom" name="nom" type="text" autocomplete="family-name" required>
+          </div>
+          <div class="field field-wide">
+            <label for="courriel">Courriel</label>
+            <input id="courriel" name="courriel" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="programme">Programme d'études</label>
+            <input id="programme" name="programme" type="text" placeholder="Génie logiciel" required>
+          </div>
+          <div class="field">
+            <label for="annee">Année</label>
+            <select id="annee" name="annee" required>
+              <option value="">Choisir</option>
+              <option>1re année</option>
+              <option>2e année</option>
+              <option>3e année</option>
+              <option>4e année et plus</option>
+              <option>Cycles supérieurs</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-group">
+          <legend>Candidature</legend>
+          <div class="field field-wide">
+            <span class="field-label" id="postes-label">Postes visés</span>
+            <div class="choices" role="group" aria-labelledby="postes-label">
+              <label class="choice"><input type="checkbox" name="postes" value="Développeur"> Développeur</label>
+              <label class="choice"><input type="checkbox" name="postes" value="Designer"> Designer</label>
+              <label class="choice"><input type="checkbox" name="postes" value="Chef de projet"> Chef de projet</label>
+            </div>
+          </div>
+          <div class="field field-wide">
+            <label for="disponibilite">Heures disponibles par semaine</label>
+            <select id="disponibilite" name="disponibilite" required>
+              <option value="">Choisir</option>
+              <option>Moins de 5 h</option>
+              <option>5 à 10 h</option>
+              <option>Plus de 10 h</option>
+            </select>
+          </div>
+          <div class="field field-wide">
+            <label for="motivation">Motivation à rejoindre le chapitre</label>
+            <textarea id="motivation" name="motivation" rows="5" maxlength="5000" required></textarea>
+          </div>
+          <div class="field field-wide">
+            <label for="experience">Expériences pertinentes <span class="optional">facultatif</span></label>
+            <textarea id="experience" name="experience" rows="4" maxlength="5000" placeholder="Projets, cours, stages, comités"></textarea>
+          </div>
+          <div class="field field-wide">
+            <label for="liens">Liens <span class="optional">facultatif</span></label>
+            <input id="liens" name="liens" type="text" placeholder="GitHub, LinkedIn, portfolio">
+          </div>
+          <div class="field field-wide">
+            <label for="cv">CV <span class="optional">PDF, 4 Mo maximum</span></label>
+            <input id="cv" name="cv" type="file" accept="application/pdf,.pdf" required>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button class="btn" type="submit">Envoyer la candidature</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+
+      <div class="apply-done" hidden>
+        <h2>Candidature envoyée</h2>
+        <p class="lede">Le comité exécutif a bien reçu la candidature et fera un suivi par courriel.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="wrap footer-grid">
+      <div class="footer-main">
+        <img class="footer-logo" src="../assets/logo-clair.svg" alt="Hack4Impact Polytechnique Montréal" width="193" height="44">
+        <div class="transparency-row">
+          <a class="transparency-badge" href="https://app.candid.org/profile/9565390/hack4impact-81-0790890" target="_blank" rel="noopener noreferrer" aria-label="Profil Candid de Hack for Impact">
+            <img src="https://widgets.guidestar.org/prod/v1/pdp/transparency-seal/9565390/svg" alt="Sceau de transparence Candid" width="80" height="80">
+          </a>
+          <div class="transparency-note">
+            <p><strong>EIN</strong> 81-0790890</p>
+            <p>Hack4Impact Polytechnique Montréal est un chapitre de <a href="https://www.hack4impact.org" target="_blank" rel="noopener noreferrer">Hack for Impact</a>, un organisme à but non lucratif 501(c)(3) engagé envers la transparence.</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <p class="label">Site</p>
+        <a href="../a-propos/index.html">À propos</a>
+        <a href="../projets/index.html">Projets</a>
+        <a href="../index.html#organismes">Organismes</a>
+        <a href="../index.html#etudiants">Étudiants</a>
+      </div>
+      <div class="footer-links">
+        <p class="label">Réseaux sociaux</p>
+        <a class="social-link" href="https://github.com/orgs/hack4impact/teams/polytechnique-montreal" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub</a>
+        <a class="social-link" href="https://www.instagram.com/hack4impactpolymtl/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>Instagram</a>
+      </div>
+      <div class="footer-legal">
+        <span>© 2026 Hack4Impact Polytechnique Montréal</span>
+        <span class="legal-right"><span>Montréal, QC</span><a class="lang-toggle" href="../en/apply/index.html" hreflang="en" lang="en">English</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../menu.js"></script>
+  <script src="../apply.js"></script>
+</body>
+</html>
