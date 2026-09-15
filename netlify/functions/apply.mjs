@@ -3,12 +3,13 @@ const REQUIRED = ['prenom', 'nom', 'courriel', 'programme', 'annee', 'disponibil
 const OPTIONAL = ['experience', 'reference'];
 const ROLES = ['Développeur', 'Designer', 'Product Manager'];
 const EXECUTIVE = ['VP Projets', 'VP Communications', 'VP Externe', 'VP Interne', 'VP Finances', 'VP Événements'];
+const ALLOWED_ORIGINS = ['https://polymtl.hack4impact.org'];
 
 function fail(status, error) {
   return Response.json({ ok: false, error }, { status });
 }
 
-export default async function handler(request) {
+async function handle(request) {
   if (request.method !== 'POST') {
     return fail(405, 'method_not_allowed');
   }
@@ -70,6 +71,17 @@ export default async function handler(request) {
     return fail(502, 'drive_failed');
   }
   return Response.json({ ok: true });
+}
+
+export default async function handler(request) {
+  const response = request.method === 'OPTIONS' ? new Response(null, { status: 204 }) : await handle(request);
+  const origin = request.headers.get('origin');
+  if (ALLOWED_ORIGINS.includes(origin)) {
+    response.headers.set('Access-Control-Allow-Origin', origin);
+    response.headers.set('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  }
+  response.headers.append('Vary', 'Origin');
+  return response;
 }
 
 export const config = {

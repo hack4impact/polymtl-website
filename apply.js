@@ -7,6 +7,8 @@
   const button = form.querySelector('button[type="submit"]');
   const lang = document.documentElement.lang === 'en' ? 'en' : 'fr';
   const MAX_CV_BYTES = 4 * 1024 * 1024;
+  // Cloudflare challenges POSTs on the custom domain, so send them straight to Netlify.
+  const ENDPOINT = location.hostname === 'polymtl.hack4impact.org' ? 'https://polymtl-h4i.netlify.app/api/apply' : form.action;
 
   const MESSAGES = {
     fr: {
@@ -164,7 +166,7 @@
     cover.style.transition = 'width 20s cubic-bezier(0.1, 0.7, 0.3, 1)';
     cover.style.width = '8%';
     try {
-      const response = await fetch(form.action, { method: 'POST', body: new FormData(form) });
+      const response = await fetch(ENDPOINT, { method: 'POST', body: new FormData(form) });
       if (response.status === 413) throw new Error('cv_too_large');
       const result = await response.json();
       if (!result.ok) throw new Error(result.error);
