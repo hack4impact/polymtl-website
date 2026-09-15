@@ -41,4 +41,19 @@
   window.addEventListener('resize', function () {
     if (window.innerWidth > 680) setNav(false);
   });
+
+  document.querySelectorAll('.page-back').forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      let fromSite = false;
+      try {
+        fromSite = new URL(document.referrer).origin === location.origin;
+      } catch (err) {
+        fromSite = false;
+      }
+      if (fromSite && history.length > 1) {
+        event.preventDefault();
+        history.back();
+      }
+    });
+  });
 })();

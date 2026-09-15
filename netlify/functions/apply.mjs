@@ -1,7 +1,8 @@
 const MAX_CV_BYTES = 4 * 1024 * 1024;
 const REQUIRED = ['prenom', 'nom', 'courriel', 'programme', 'annee', 'disponibilite', 'motivation'];
-const OPTIONAL = ['experience', 'liens'];
-const ROLES = ['Développeur', 'Designer', 'Chef de projet'];
+const OPTIONAL = ['experience', 'reference'];
+const ROLES = ['Développeur', 'Designer', 'Product Manager'];
+const EXECUTIVE = ['VP Projets', 'VP Communications', 'VP Externe', 'VP Interne', 'VP Finances', 'VP Événements'];
 
 function fail(status, error) {
   return Response.json({ ok: false, error }, { status });
@@ -58,6 +59,8 @@ export default async function handler(request) {
       secret: process.env.APPS_SCRIPT_SECRET,
       ...fields,
       postes: postes.join(', '),
+      liens: form.getAll('liens').map((link) => String(link).trim()).filter(Boolean).slice(0, 10).join('\n'),
+      executif: form.getAll('executif').map(String).filter((role) => EXECUTIVE.includes(role)).join(', '),
       cv: { content: bytes.toString('base64') },
     }),
   }).catch(() => null);

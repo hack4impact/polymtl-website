@@ -5,10 +5,12 @@ const QUESTIONS = [
   ['programme', "Programme d'études"],
   ['annee', 'Année'],
   ['postes', 'Postes visés'],
+  ['executif', 'Intérêt pour le comité exécutif'],
   ['disponibilite', 'Heures disponibles par semaine'],
   ['motivation', 'Motivation'],
   ['experience', 'Expériences pertinentes'],
   ['liens', 'Liens'],
+  ['reference', 'Recommandé par'],
 ];
 
 function doPost(e) {

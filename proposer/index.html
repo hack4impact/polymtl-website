@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Projets | Hack4Impact Polytechnique Montréal</title>
-  <meta name="description" content="Les applications développées par Hack4Impact Polytechnique Montréal pour des organismes à but non lucratif.">
+  <title>Proposer un projet | Hack4Impact Polytechnique Montréal</title>
+  <meta name="description" content="Formulaire pour proposer un projet à Hack4Impact Polytechnique Montréal.">
   <link rel="preload" href="../fonts/source-sans-3-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../style.css?v=12">
 </head>
 <body>
 
@@ -19,13 +19,13 @@
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
       <nav class="nav" id="site-nav" aria-label="Navigation principale">
         <a href="../index.html">Accueil</a>
-        <a href="index.html" aria-current="page">Projets</a>
+        <a href="../projets/index.html">Projets</a>
         <a href="../a-propos/index.html">À propos</a>
         <details class="apply-menu">
           <summary class="btn btn-small btn-line">Appliquer <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
           <div class="apply-panel">
             <a href="../appliquer/index.html"><b>Étudiant</b><span>Devenir membre</span></a>
-            <a href="../proposer/index.html"><b>Organisme</b><span>Proposer un projet</span></a>
+            <a href="index.html" aria-current="page"><b>Organisme</b><span>Proposer un projet</span></a>
           </div>
         </details>
       </nav>
@@ -34,32 +34,14 @@
 
   <main>
 
-    <section class="projects-page">
-      <div class="wrap block-inner">
-        <div class="block-head">
-          <p class="label accent">Projets</p>
-          <h1 class="page-title">Projets réalisés</h1>
-          <p class="lede">Liste et description des projets réalisés par les membres du comité.</p>
-        </div>
+    <section class="wrap apply-page">
+      <div class="block-head">
+        <a class="page-back" href="../index.html#organismes" aria-label="Retour"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg></a>
+        <p class="label accent">Organismes</p>
+        <h1 class="page-title">Proposer un projet</h1>
+      </div>
 
-        <article class="project">
-          <a class="project-visual" href="canopee/index.html" tabindex="-1" aria-hidden="true">
-            <img class="preview-img" src="canopee/assets/apercu.jpg" alt="" width="1200" height="800">
-            <span class="project-name">Canopée</span>
-          </a>
-          <div class="project-info">
-            <dl class="facts">
-              <div><dt class="label">Organisme</dt><dd>Réseau Canopée</dd></div>
-              <div><dt class="label">Année</dt><dd>2026</dd></div>
-              <div><dt class="label">Plateformes</dt><dd>Web, iOS et Android</dd></div>
-            </dl>
-            <p>Application web et mobile pour les patrouilleurs bénévoles du réseau Canopée, qui surveillent les boisés de Laval. Les bénévoles enregistrent leurs patrouilles par GPS et signalent ce qu'ils voient sur le terrain avec une photo et la position. L'équipe de Canopée suit tout sur une carte.</p>
-            <a class="link-arrow" href="canopee/index.html">
-              <span>Voir le projet</span>
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-          </div>
-        </article>      </div>
+      <iframe data-tally-src="https://tally.so/embed/yP1xNW?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1&amp;specific_chapter=Yes&amp;chapter=Polytechnique%20Montreal" loading="lazy" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" title="Proposer un projet"></iframe>
     </section>
 
   </main>
@@ -81,7 +63,7 @@
       <div class="footer-links">
         <p class="label">Site</p>
         <a href="../a-propos/index.html">À propos</a>
-        <a href="index.html">Projets</a>
+        <a href="../projets/index.html">Projets</a>
         <a href="../index.html#organismes">Organismes</a>
         <a href="../index.html#etudiants">Étudiants</a>
       </div>
@@ -92,12 +74,12 @@
       </div>
       <div class="footer-legal">
         <span>© 2026 Hack4Impact Polytechnique Montréal</span>
-        <span class="legal-right"><span>Montréal, QC</span><a class="lang-toggle" href="../en/projects/index.html" hreflang="en" lang="en">English</a></span>
+        <span class="legal-right"><span>Montréal, QC</span><a class="lang-toggle" href="../en/index.html#nonprofits" hreflang="en" lang="en">English</a></span>
       </div>
     </div>
   </footer>
 
-  <script src="../script.js"></script>
-  <script src="../menu.js"></script>
+  <script src="../menu.js?v=2"></script>
+  <script src="https://tally.so/widgets/embed.js" async onload="Tally.loadEmbeds()"></script>
 </body>
 </html>
