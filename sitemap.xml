@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://polymtl.hack4impact.org/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://polymtl.hack4impact.org/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polymtl.hack4impact.org/en/"/>
+  </url>
+  <url>
+    <loc>https://polymtl.hack4impact.org/en/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://polymtl.hack4impact.org/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polymtl.hack4impact.org/en/"/>
+  </url>
+  <url>
+    <loc>https://polymtl.hack4impact.org/projets/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://polymtl.hack4impact.org/projets/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polymtl.hack4impact.org/en/projects/"/>
+  </url>
+  <url>
+    <loc>https://polymtl.hack4impact.org/en/projects/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://polymtl.hack4impact.org/projets/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polymtl.hack4impact.org/en/projects/"/>
+  </url>
+  <url>
+    <loc>https://polymtl.hack4impact.org/projets/canopee/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://polymtl.hack4impact.org/projets/canopee/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polymtl.hack4impact.org/en/projects/canopee/"/>
+  </url>
+  <url>
+    <loc>https://polymtl.hack4impact.org/en/projects/canopee/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://polymtl.hack4impact.org/projets/canopee/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polymtl.hack4impact.org/en/projects/canopee/"/>
+  </url>
+  <url>
+    <loc>https://polymtl.hack4impact.org/a-propos/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://polymtl.hack4impact.org/a-propos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polymtl.hack4impact.org/en/about/"/>
+  </url>
+  <url>
+    <loc>https://polymtl.hack4impact.org/en/about/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://polymtl.hack4impact.org/a-propos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polymtl.hack4impact.org/en/about/"/>
+  </url>
+  <url>
+    <loc>https://polymtl.hack4impact.org/roles/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://polymtl.hack4impact.org/roles/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polymtl.hack4impact.org/en/roles/"/>
+  </url>
+  <url>
+    <loc>https://polymtl.hack4impact.org/en/roles/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://polymtl.hack4impact.org/roles/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polymtl.hack4impact.org/en/roles/"/>
+  </url>
+  <url>
+    <loc>https://polymtl.hack4impact.org/appliquer/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://polymtl.hack4impact.org/appliquer/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polymtl.hack4impact.org/en/apply/"/>
+  </url>
+  <url>
+    <loc>https://polymtl.hack4impact.org/en/apply/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://polymtl.hack4impact.org/appliquer/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://polymtl.hack4impact.org/en/apply/"/>
+  </url>
+  <url>
+    <loc>https://polymtl.hack4impact.org/proposer/</loc>
+  </url>
+</urlset>
