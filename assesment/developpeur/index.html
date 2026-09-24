@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>if (!/\/$|\.html$/.test(location.pathname)) location.replace(location.pathname + '/' + location.search + location.hash);</script>
+  <title>Entrevue développeur | Hack4Impact Polytechnique Montréal</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="../../social/profile_400x400.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="ide.css?v=8">
+</head>
+<body class="accueil">
+
+  <div class="ide" id="ide">
+    <header class="topbar">
+      <div class="tb-left">
+        <a class="tb-logo" href="../" title="Retour aux parcours">
+          <img src="../../social/profile_400x400.png" alt="Hack4Impact" width="26" height="26">
+        </a>
+        <div class="tb-crumb">
+          <span>Entrevue</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+          <b>Développeur</b>
+        </div>
+      </div>
+
+      <div class="tb-progress" id="progress" aria-live="polite">
+        <div class="tb-segments" id="segments"></div>
+        <span class="tb-progress-text" id="progress-text">0 / 5 bugs réglés</span>
+      </div>
+
+      <div class="tb-right">
+        <span class="tb-timer" id="timer" title="Temps écoulé">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 1.5"/><path d="M10 2h4"/></svg>
+          <span id="timer-text">00:00</span>
+        </span>
+        <button class="tb-btn" id="btn-resultats" type="button" title="Télécharger le rapport de l'entrevue">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19h14"/></svg>
+          Résultats
+        </button>
+        <button class="tb-btn" id="btn-mission" type="button">Objectif</button>
+        <button class="tb-btn" id="btn-reset" type="button">Réinitialiser</button>
+        <button class="tb-btn tb-primary" id="btn-save" type="button">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5 10 17.5 19 7"/></svg>
+          Enregistrer
+          <kbd>Ctrl S</kbd>
+        </button>
+      </div>
+    </header>
+
+    <div class="workspace" id="workspace">
+      <aside class="sidebar">
+        <section class="side-section side-files">
+          <h2 class="side-title">Explorateur</h2>
+          <div class="tree" id="tree" role="tree"></div>
+        </section>
+        <section class="side-section side-todos">
+          <h2 class="side-title">Bugs à régler <span class="side-count" id="todo-count">0/5</span></h2>
+          <ol class="todos" id="todos"></ol>
+        </section>
+      </aside>
+
+      <div class="resizer resizer-v" data-resize="side" aria-hidden="true"></div>
+
+      <div class="center">
+        <div class="tabs" id="tabs" role="tablist"></div>
+        <div class="editor-wrap">
+          <div id="editor"></div>
+          <div class="md-preview" id="md-preview" hidden></div>
+          <div class="loading" id="editor-loading">
+            <span class="spinner"></span>
+            Chargement de l'éditeur…
+          </div>
+        </div>
+
+        <div class="resizer resizer-h" data-resize="panel" aria-hidden="true"></div>
+
+        <section class="panel">
+          <div class="panel-bar">
+            <div class="panel-tabs" role="tablist">
+              <button type="button" class="panel-tab active" data-pane="console">Console <span class="badge" id="badge-console"></span></button>
+              <button type="button" class="panel-tab" data-pane="reseau">Réseau <span class="badge badge-muted" id="badge-reseau"></span></button>
+              <button type="button" class="panel-tab" data-pane="debug">Débogueur <span class="badge badge-muted" id="badge-debug"></span></button>
+              <button type="button" class="panel-tab" data-pane="tests">Tests <span class="badge badge-muted" id="badge-tests"></span></button>
+            </div>
+            <div class="panel-tools">
+              <div class="tools" data-tools="console">
+                <div class="seg" id="console-filter">
+                  <button type="button" class="active" data-filter="tout">Tout</button>
+                  <button type="button" data-filter="frontend">Frontend</button>
+                  <button type="button" data-filter="backend">Backend</button>
+                </div>
+                <button type="button" class="tool-btn" id="console-clear" title="Effacer la console">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="m6 18 12-12"/></svg>
+                </button>
+              </div>
+              <div class="tools" data-tools="reseau" hidden>
+                <label class="check"><input type="checkbox" id="net-hide-ticks"> Masquer /api/tick</label>
+                <button type="button" class="tool-btn" id="net-clear" title="Effacer">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="m6 18 12-12"/></svg>
+                </button>
+              </div>
+              <div class="tools" data-tools="debug" hidden>
+                <button type="button" class="tool-btn tool-text" id="debug-freeze" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+                  <span>Figer</span>
+                </button>
+                <button type="button" class="tool-btn" id="debug-clear" title="Effacer les captures">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="m6 18 12-12"/></svg>
+                </button>
+              </div>
+              <div class="tools" data-tools="tests" hidden>
+                <button type="button" class="tool-btn tool-text" id="tests-run">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.9l10.2-6.5a1 1 0 0 0 0-1.7L9.5 4.6A1 1 0 0 0 8 5.5Z"/></svg>
+                  <span>Tout vérifier</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="panes">
+            <div class="pane active" id="pane-console">
+              <div class="console" id="console"></div>
+            </div>
+            <div class="pane" id="pane-reseau">
+              <div class="net">
+                <div class="net-list">
+                  <div class="net-head">
+                    <span>Méthode</span><span>Chemin</span><span>Statut</span><span>Durée</span>
+                  </div>
+                  <div class="net-rows" id="net-rows"></div>
+                </div>
+                <div class="net-detail" id="net-detail">
+                  <p class="empty">Sélectionne une requête pour voir son contenu.</p>
+                </div>
+              </div>
+            </div>
+            <div class="pane" id="pane-debug">
+              <div class="debug">
+                <div class="debug-col">
+                  <div class="debug-head">
+                    <h3>Captures</h3>
+                    <div class="bp-list" id="bp-list"></div>
+                  </div>
+                  <div class="captures" id="captures"></div>
+                </div>
+                <div class="debug-col debug-db">
+                  <div class="debug-head">
+                    <h3>État du backend <code>db</code></h3>
+                    <button type="button" class="link-btn" id="db-reset">Réinitialiser l'état</button>
+                  </div>
+                  <div class="db-tree" id="db-tree"><p class="empty">En attente du backend…</p></div>
+                </div>
+              </div>
+            </div>
+            <div class="pane" id="pane-tests">
+              <div class="tests" id="tests"></div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="resizer resizer-v" data-resize="preview" aria-hidden="true"></div>
+
+      <section class="preview">
+        <div class="preview-bar">
+          <button type="button" class="pv-btn" id="pv-reload" title="Recharger l'application">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg>
+          </button>
+          <div class="pv-url">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+            <span>localhost:3000</span>
+          </div>
+        </div>
+        <div class="preview-frame">
+          <iframe id="frame" title="Application en cours de développement"></iframe>
+          <div class="loading loading-light" id="preview-loading">
+            <span class="spinner"></span>
+            <span id="preview-loading-text">Démarrage du backend Python…</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="statusbar">
+      <div class="sb-left">
+        <span class="sb-item" id="sb-backend">Backend : démarrage…</span>
+        <span class="sb-item" id="sb-frontend">Frontend : compilation…</span>
+        <span class="sb-item" id="sb-save"></span>
+      </div>
+      <div class="sb-right">
+        <span class="sb-item" id="sb-cursor"></span>
+        <span class="sb-item" id="sb-lang"></span>
+      </div>
+    </footer>
+  </div>
+
+  <iframe id="test-frame" class="test-frame" title="Tests" tabindex="-1" aria-hidden="true"></iframe>
+
+  <div class="narrow" id="narrow">
+    <div class="narrow-card">
+      <p class="narrow-title">Un plus grand écran est nécessaire</p>
+      <p>L'environnement demande un écran d'au moins 1100 pixels de large.</p>
+      <button type="button" class="btn btn-ghost" id="narrow-continue">Continuer quand même</button>
+    </div>
+  </div>
+
+  <dialog class="dialog" id="dlg-mission" aria-labelledby="mission-title">
+    <div class="dlg-body">
+      <p class="dlg-label">Entrevue développeur</p>
+      <h2 id="mission-title">Sauve la plante</h2>
+      <p class="dlg-lead">L'application contient cinq bugs, chacun marqué par un commentaire <code>TODO</code>. Corrige-les.</p>
+      <p class="keys"><kbd>Ctrl</kbd> <kbd>S</kbd> enregistre et recharge l'application. <b>Vérifier</b>, à côté de chaque bug, lance ses tests.</p>
+    </div>
+    <div class="dlg-actions">
+      <button type="button" class="btn btn-primary" id="mission-start">Commencer</button>
+    </div>
+  </dialog>
+
+  <dialog class="dialog dialog-small" id="dlg-nom" aria-labelledby="nom-title">
+    <div class="dlg-body">
+      <h2 id="nom-title">Télécharger les résultats</h2>
+      <label class="nom-champ">Nom complet
+        <input id="nom-valeur" type="text" autocomplete="name" spellcheck="false" placeholder="Prénom Nom">
+      </label>
+    </div>
+    <div class="dlg-actions">
+      <button type="button" class="btn btn-ghost" id="nom-annuler">Annuler</button>
+      <button type="button" class="btn btn-primary" id="nom-valider">Télécharger</button>
+    </div>
+  </dialog>
+
+  <dialog class="dialog dialog-small" id="dlg-reset" aria-labelledby="reset-title">
+    <div class="dlg-body">
+      <h2 id="reset-title">Tout réinitialiser ?</h2>
+      <p class="dlg-lead">Le code revient à son état de départ et le chronomètre repart à zéro.</p>
+    </div>
+    <div class="dlg-actions">
+      <button type="button" class="btn btn-ghost" id="reset-cancel">Annuler</button>
+      <button type="button" class="btn btn-danger" id="reset-confirm">Réinitialiser</button>
+    </div>
+  </dialog>
+
+  <dialog class="dialog dialog-small dialog-bravo" id="dlg-bravo" aria-labelledby="bravo-title">
+    <div class="dlg-body">
+      <div class="bravo-badge" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17.5 19 7"/></svg>
+      </div>
+      <h2 id="bravo-title">Les cinq bugs sont réglés</h2>
+      <p class="dlg-lead">Temps total : <b id="bravo-time">00:00</b></p>
+    </div>
+    <div class="dlg-actions">
+      <button type="button" class="btn btn-primary" id="bravo-close">Voir ma plante</button>
+    </div>
+  </dialog>
+
+  <script src="ide.js?v=7"></script>
+</body>
+</html>

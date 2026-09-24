@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>if (!/\/$|\.html$/.test(location.pathname)) location.replace(location.pathname + '/' + location.search + location.hash);</script>
+  <title>Entrevue product manager | Hack4Impact Polytechnique Montréal</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="../../social/profile_400x400.png">
+  <link rel="stylesheet" href="pm.css?v=4">
+</head>
+<body class="accueil">
+
+  <div class="app">
+    <header class="entete">
+      <div class="entete-gauche">
+        <a class="logo" href="../" title="Retour aux parcours">
+          <img src="../../social/profile_400x400.png" alt="Hack4Impact" width="26" height="26">
+        </a>
+        <div class="fil">
+          <a href="../">Entrevue</a>
+          <span>/</span>
+          <b>product-manager</b>
+          <span class="etiquette-public">Le Tremplin</span>
+        </div>
+      </div>
+      <div class="entete-droite">
+        <span class="chrono" title="Temps écoulé">
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8.75-4.25v3.94l2.28 2.28a.75.75 0 1 1-1.06 1.06L7.47 8.53A.75.75 0 0 1 7.25 8V3.75a.75.75 0 0 1 1.5 0Z"/></svg>
+          <span id="timer-text">00:00</span>
+        </span>
+        <button class="btn btn-sm" id="btn-objectif" type="button">Objectif</button>
+        <button class="btn btn-sm" id="btn-reset" type="button">Réinitialiser</button>
+        <button class="btn btn-sm btn-vert" id="btn-telecharger" type="button">
+          <svg viewBox="0 0 16 16" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .14.11.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14ZM7.25 7.69V1.75a.75.75 0 0 1 1.5 0v5.94l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 6.78a.75.75 0 0 1 1.06-1.06Z"/></svg>
+          Télécharger le PRD
+        </button>
+      </div>
+      <nav class="onglets" id="onglets" aria-label="Sections"></nav>
+    </header>
+
+    <div class="corps">
+      <aside class="notes" id="notes" aria-label="Notes de rencontre"></aside>
+      <main class="travail" id="travail"></main>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <div class="narrow" id="narrow">
+    <div class="narrow-card">
+      <p class="narrow-title">Un plus grand écran est nécessaire</p>
+      <p>Cette entrevue demande un écran d'au moins 1100 pixels de large.</p>
+      <button type="button" class="btn" id="narrow-continue">Continuer quand même</button>
+    </div>
+  </div>
+
+  <dialog class="dialog" id="dlg-objectif" aria-labelledby="objectif-title">
+    <div class="dlg-tete"><h2 id="objectif-title">Entrevue product manager</h2></div>
+    <div class="dlg-corps">
+      <p>Tu sors de la première rencontre avec la <b>Maison des Jeunes Le Tremplin</b>. À partir des notes, écris la première version du PRD : le problème, les fonctionnalités, ce qui fait partie du MVP, et le plan des 4 sprints.</p>
+      <p>Tu as <b>20 minutes</b>.</p>
+    </div>
+    <div class="dlg-pied">
+      <button type="button" class="btn btn-vert" id="objectif-start">Commencer</button>
+    </div>
+  </dialog>
+
+  <dialog class="dialog dialog-petit" id="dlg-nom" aria-labelledby="nom-title">
+    <div class="dlg-tete"><h2 id="nom-title">Télécharger le PRD</h2></div>
+    <div class="dlg-corps">
+      <label class="champ-label" for="nom-valeur">Nom complet</label>
+      <input class="input" id="nom-valeur" type="text" autocomplete="name" spellcheck="false" placeholder="Prénom Nom">
+    </div>
+    <div class="dlg-pied">
+      <button type="button" class="btn" id="nom-annuler">Annuler</button>
+      <button type="button" class="btn btn-vert" id="nom-valider">Télécharger</button>
+    </div>
+  </dialog>
+
+  <dialog class="dialog dialog-petit" id="dlg-reset" aria-labelledby="reset-title">
+    <div class="dlg-tete"><h2 id="reset-title">Tout réinitialiser ?</h2></div>
+    <div class="dlg-corps"><p>Le PRD est effacé et le chronomètre repart à zéro.</p></div>
+    <div class="dlg-pied">
+      <button type="button" class="btn" id="reset-cancel">Annuler</button>
+      <button type="button" class="btn btn-danger" id="reset-confirm">Réinitialiser</button>
+    </div>
+  </dialog>
+
+  <dialog class="dialog" id="dlg-feature" aria-labelledby="feature-title">
+    <form method="dialog" id="form-feature">
+      <div class="dlg-tete">
+        <h2 id="feature-title">Fonctionnalité</h2>
+        <button type="button" class="btn-fermer" id="f-fermer" aria-label="Fermer"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z"/></svg></button>
+      </div>
+      <div class="dlg-corps">
+        <label class="champ-label" for="f-titre">Titre</label>
+        <input class="input" id="f-titre" required>
+        <label class="champ-label" for="f-description">Histoire utilisateur</label>
+        <textarea class="input" id="f-description" rows="3" placeholder="En tant que jeune, je veux… afin de…"></textarea>
+        <div class="deux">
+          <div>
+            <label class="champ-label" for="f-utilisateur">Utilisateur</label>
+            <select class="input" id="f-utilisateur"></select>
+          </div>
+          <div>
+            <label class="champ-label" for="f-effort">Effort</label>
+            <select class="input" id="f-effort"></select>
+          </div>
+        </div>
+      </div>
+      <div class="dlg-pied">
+        <button type="button" class="btn-lien-danger" id="f-supprimer">Supprimer</button>
+        <span class="espace"></span>
+        <button type="button" class="btn" id="f-annuler">Annuler</button>
+        <button type="submit" class="btn btn-vert">Enregistrer</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="notes.js?v=2"></script>
+  <script src="pm.js?v=3"></script>
+</body>
+</html>

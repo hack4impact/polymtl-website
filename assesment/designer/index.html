@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>if (!/\/$|\.html$/.test(location.pathname)) location.replace(location.pathname + '/' + location.search + location.hash);</script>
+  <title>Entrevue designer | Hack4Impact Polytechnique Montréal</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="../../social/profile_400x400.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" crossorigin="anonymous" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Serif+4:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="designer.css?v=8">
+</head>
+<body class="accueil">
+
+  <div class="app">
+    <header class="topbar">
+      <div class="tb-left">
+        <a class="tb-logo" href="../" title="Retour aux parcours">
+          <img src="../../social/profile_400x400.png" alt="Hack4Impact" width="26" height="26">
+        </a>
+        <div class="tb-crumb">
+          <span>Entrevue</span>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>
+          <b>Designer</b>
+        </div>
+      </div>
+
+      <div class="outils" id="outils" role="toolbar" aria-label="Outils"></div>
+
+      <div class="tb-right">
+        <span class="tb-timer" title="Temps écoulé">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 1.5"/><path d="M10 2h4"/></svg>
+          <span id="timer-text">00:00</span>
+        </span>
+        <button class="tb-btn" id="btn-telecharger" type="button" title="Télécharger une image de tous les écrans">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19h14"/></svg>
+          <span>Télécharger</span>
+        </button>
+        <button class="tb-btn" id="btn-objectif" type="button">Objectif</button>
+        <button class="tb-btn" id="btn-reset" type="button">Réinitialiser</button>
+        <button class="tb-btn tb-primary" id="btn-presenter" type="button">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.9l10.2-6.5a1 1 0 0 0 0-1.7L9.5 4.6A1 1 0 0 0 8 5.5Z"/></svg>
+          Présenter
+        </button>
+      </div>
+    </header>
+
+    <div class="workspace" id="workspace">
+      <aside class="sidebar">
+        <div class="side-tabs" role="tablist">
+          <button type="button" class="side-tab active" data-onglet="ressources">Ressources</button>
+          <button type="button" class="side-tab" data-onglet="composants">Composants</button>
+          <button type="button" class="side-tab" data-onglet="calques">Calques</button>
+        </div>
+        <div class="side-body">
+          <div class="side-pane active" id="pane-ressources"></div>
+          <div class="side-pane" id="pane-composants"></div>
+          <div class="side-pane" id="pane-calques"></div>
+        </div>
+      </aside>
+
+      <section class="lecteur" id="lecteur" hidden>
+        <div class="lecteur-bar">
+          <span class="lecteur-titre" id="lecteur-titre"></span>
+          <div class="lecteur-nav">
+            <button type="button" class="icon-btn" id="lecteur-prec" title="Document précédent"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+            <button type="button" class="icon-btn" id="lecteur-suiv" title="Document suivant"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+            <button type="button" class="icon-btn" id="lecteur-fermer" title="Fermer"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+          </div>
+        </div>
+        <div class="lecteur-corps" id="lecteur-corps"></div>
+      </section>
+
+      <main class="canevas" id="canevas">
+        <div class="monde" id="monde"></div>
+        <div class="surcouche" id="surcouche"></div>
+        <div class="zoom">
+          <button type="button" class="icon-btn" id="zoom-moins" title="Dézoomer (Ctrl -)"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14"/></svg></button>
+          <button type="button" class="zoom-val" id="zoom-val" title="Tout afficher (Maj 1)">100 %</button>
+          <button type="button" class="icon-btn" id="zoom-plus" title="Zoomer (Ctrl +)"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+        </div>
+        <div class="toast" id="toast" hidden></div>
+      </main>
+
+      <aside class="inspecteur" id="inspecteur"></aside>
+    </div>
+  </div>
+
+  <div class="presentation" id="presentation" hidden>
+    <div class="pres-bar">
+      <select id="pres-ecran" aria-label="Écran"></select>
+      <span class="pres-aide">Clique sur les éléments reliés pour naviguer · Échap pour quitter</span>
+      <button type="button" class="pres-fermer" id="pres-fermer">Quitter</button>
+    </div>
+    <div class="pres-scene" id="pres-scene"></div>
+  </div>
+
+  <div class="narrow" id="narrow">
+    <div class="narrow-card">
+      <p class="narrow-title">Un plus grand écran est nécessaire</p>
+      <p>L'éditeur demande un écran d'au moins 1100 pixels de large.</p>
+      <button type="button" class="btn btn-ghost" id="narrow-continue">Continuer quand même</button>
+    </div>
+  </div>
+
+  <dialog class="dialog" id="dlg-objectif" aria-labelledby="objectif-title">
+    <div class="dlg-body">
+      <p class="dlg-label">Entrevue designer</p>
+      <h2 id="objectif-title">Le Panier Solidaire</h2>
+      <p class="dlg-lead">Une banque alimentaire veut une application mobile pour que les familles réservent l'heure où elles viennent chercher leur panier.</p>
+      <p class="dlg-lead">Lis les ressources à gauche, puis conçois les <b>2 écrans</b> demandés dans <b>Livrables</b>. Tu as <b>20 minutes</b>.</p>
+    </div>
+    <div class="dlg-actions">
+      <button type="button" class="btn btn-primary" id="objectif-start">Commencer</button>
+    </div>
+  </dialog>
+
+  <dialog class="dialog dialog-small" id="dlg-nom" aria-labelledby="nom-title">
+    <div class="dlg-body">
+      <h2 id="nom-title">Télécharger ton travail</h2>
+      <label class="nom-champ">Nom complet
+        <input id="nom-valeur" type="text" autocomplete="name" spellcheck="false" placeholder="Prénom Nom">
+      </label>
+    </div>
+    <div class="dlg-actions">
+      <button type="button" class="btn btn-ghost" id="nom-annuler">Annuler</button>
+      <button type="button" class="btn btn-primary" id="nom-valider">Télécharger</button>
+    </div>
+  </dialog>
+
+  <dialog class="dialog dialog-small" id="dlg-reset" aria-labelledby="reset-title">
+    <div class="dlg-body">
+      <h2 id="reset-title">Tout réinitialiser ?</h2>
+      <p class="dlg-lead">Tous les écrans sont supprimés et le chronomètre repart à zéro.</p>
+    </div>
+    <div class="dlg-actions">
+      <button type="button" class="btn btn-ghost" id="reset-cancel">Annuler</button>
+      <button type="button" class="btn btn-danger" id="reset-confirm">Réinitialiser</button>
+    </div>
+  </dialog>
+
+  <input type="file" id="fichier-image" accept="image/png,image/jpeg,image/webp,image/gif,image/svg+xml" hidden>
+
+  <script src="ressources.js?v=2"></script>
+  <script src="designer.js?v=13"></script>
+</body>
+</html>
