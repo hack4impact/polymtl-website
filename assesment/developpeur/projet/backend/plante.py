@@ -31,7 +31,7 @@ def borner(valeur, minimum=0, maximum=100):
 
 
 def arroser(plante):
-    # TODO 1 (facile) : la jauge d'eau dépasse 100 % quand on arrose plusieurs fois de suite.
+    # TODO 1 : la jauge d'eau dépasse 100 % quand on arrose plusieurs fois de suite.
     # Regarde comment soleil() garde la lumière entre 0 et 100, puis fais la même chose ici.
     plante["eau"] = plante["eau"] + EAU_PAR_ARROSAGE
     return plante
@@ -58,7 +58,7 @@ def simuler(plante, secondes):
         plante["eau"] = borner(plante["eau"] - PERTE_EAU)
         plante["lumiere"] = borner(plante["lumiere"] - PERTE_LUMIERE)
 
-        # TODO 3 (moyen) : la plante tombe malade quand on s'en occupe bien,
+        # TODO 3 : la plante tombe malade quand on s'en occupe bien,
         # et elle grandit quand on la néglige. Lis attentivement les deux branches du if.
         # Astuce : clique dans la marge à gauche de la ligne du if pour poser un point d'arrêt,
         # puis regarde la valeur de en_forme dans l'onglet Débogueur.

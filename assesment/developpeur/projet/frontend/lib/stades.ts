@@ -15,7 +15,7 @@ export const STADES: Stade[] = [
 ];
 
 export function choisirStade(croissance: number): Stade {
-  // TODO 2 (facile) : la plante reste une graine pour toujours, même à 100 % de croissance.
+  // TODO 2 : la plante reste une graine pour toujours, même à 100 % de croissance.
   // Ajoute un console.log(croissance, stade.nom) dans la boucle et regarde la console :
   // quel stade est retourné, et pourquoi la boucle s'arrête-t-elle aussi tôt ?
   for (const stade of STADES) {

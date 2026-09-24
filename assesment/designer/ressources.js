@@ -75,7 +75,6 @@ window.RESSOURCES = {
           ['Choix du créneau', 'Les heures disponibles du jeudi et les places restantes.'],
           ['Confirmation', 'L’heure choisie, l’adresse et le code à présenter au comptoir.'],
         ] },
-        { type: 'p', texte: 'Bonus : relie les deux écrans (Interaction dans l’inspecteur) et montre le résultat avec Présenter.' },
       ],
     },
   ],

@@ -43,7 +43,7 @@ def engrais():
     verifier_vivante()
     plante = db["plante"]
 
-    # TODO 5 (difficile) : on peut spammer le bouton Engrais et la plante fleurit en dix clics.
+    # TODO 4 : on peut spammer le bouton Engrais et la plante fleurit en dix clics.
     # Refuse une nouvelle dose si moins de DELAI_ENGRAIS secondes se sont écoulées depuis la
     # dernière. Compare plante["age"] avec plante["dernier_engrais"] (None avant la première dose).
     # Si c'est trop tôt, lève HTTPException(status_code=429, detail="...") avec un message clair :

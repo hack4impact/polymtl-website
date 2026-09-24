@@ -3,7 +3,7 @@
 Une application pour prendre soin d'une plante virtuelle : on l'arrose, on lui donne du soleil
 et de l'engrais, et elle grandit de la graine jusqu'à la fleur.
 
-Il reste 5 bugs, chacun marqué par un commentaire `TODO`.
+Il reste 4 bugs, chacun marqué par un commentaire `TODO`.
 
 ## Structure
 

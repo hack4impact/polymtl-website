@@ -584,30 +584,6 @@ body.resizing iframe {
   font-size: 11px;
 }
 
-.lvl {
-  padding: 0 6px;
-  border-radius: 4px;
-  font-family: var(--ui);
-  font-size: 10.5px;
-  font-weight: 600;
-  line-height: 16px;
-}
-
-.lvl-facile {
-  background: var(--green-soft);
-  color: var(--green);
-}
-
-.lvl-moyen {
-  background: var(--amber-soft);
-  color: var(--amber);
-}
-
-.lvl-difficile {
-  background: var(--red-soft);
-  color: var(--red);
-}
-
 /* ---------- Onglets et éditeur ---------- */
 
 .tabs {

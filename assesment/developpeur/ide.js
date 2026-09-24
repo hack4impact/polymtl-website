@@ -15,7 +15,7 @@
     ['https://cdn.jsdelivr.net/npm/csstype@3/index.d.ts', 'file:///node_modules/csstype/index.d.ts'],
   ];
 
-  const CLE_SESSION = 'h4i-eval-dev-v1';
+  const CLE_SESSION = 'h4i-eval-dev-v2';
   const CLE_DISPOSITION = 'h4i-eval-dev-layout';
   const DELAI_REQUETE = 5000;
 
@@ -34,11 +34,10 @@
   ];
 
   const TACHES = [
-    { id: '1', titre: "La jauge d'eau déborde", fichier: 'backend/plante.py', niveau: 'facile' },
-    { id: '2', titre: 'La plante reste une graine', fichier: 'frontend/lib/stades.ts', niveau: 'facile' },
-    { id: '3', titre: 'Malade quand on en prend soin', fichier: 'backend/plante.py', niveau: 'moyen' },
-    { id: '4', titre: "Le temps s'emballe", fichier: 'frontend/app/page.tsx', niveau: 'moyen' },
-    { id: '5', titre: "L'engrais à volonté", fichier: 'backend/main.py', niveau: 'difficile' },
+    { id: '1', titre: "La jauge d'eau déborde", fichier: 'backend/plante.py' },
+    { id: '2', titre: 'La plante reste une graine', fichier: 'frontend/lib/stades.ts' },
+    { id: '3', titre: 'Malade quand on en prend soin', fichier: 'backend/plante.py' },
+    { id: '4', titre: "L'engrais à volonté", fichier: 'backend/main.py' },
   ];
 
   const $ = (s, r = document) => r.querySelector(s);
@@ -325,7 +324,7 @@
             h('span', { class: 'todo-status' }, enCours ? h('span', { class: 'spinner' }) : r ? (r.ok ? '✓' : '✕') : ''),
             h('span', null,
               h('span', { class: 'todo-title' }, t.titre),
-              h('span', { class: 'todo-meta' }, `${t.niveau[0].toUpperCase() + t.niveau.slice(1)} · ${enCours ? 'Vérification…' : resumeTests(r)}`)
+              h('span', { class: 'todo-meta' }, `${nomFichier(t.fichier)} · ${enCours ? 'Vérification…' : resumeTests(r)}`)
             )
           ),
           h('button', { class: 'todo-check', type: 'button', disabled: enCours, title: `Lancer les tests du TODO ${t.id}`, onclick: () => verifier([t.id]) }, 'Vérifier')
@@ -1383,20 +1382,11 @@
 
   // ---------- Tests ----------
 
-  const TODOS_BACKEND = ['1', '3', '5'];
+  const TODOS_BACKEND = ['1', '3', '4'];
 
-  async function trouver(win, sel) {
-    for (let i = 0; i < 80; i++) {
-      const n = win.document.querySelector(sel);
-      if (n) return n;
-      await attendre(50);
-    }
-    throw new Error(`L'élément ${sel} est introuvable dans la page.`);
-  }
 
   const NOMS_FRONT = {
     '2': ['0 % donne Graine', '15 % (seuil exact) donne Pousse', '50 % donne Jeune plante', '80 % donne Plante', '100 % donne En fleur'],
-    '4': ['Au démarrage, un tick par seconde', 'À ×5, un seul tick par seconde', 'À ×5, chaque tick simule 5 secondes', 'Retour à ×1, un seul tick par seconde', 'Retour à ×1, chaque tick simule 1 seconde'],
   };
 
   const TESTS_FRONT = {
@@ -1417,51 +1407,6 @@
       });
     },
 
-    async '4'(win, suivi) {
-      const noms = NOMS_FRONT['4'];
-      const resultats = [];
-      const fenetre = async (ms) => {
-        const debut = performance.now();
-        await attendre(ms);
-        return suivi.ticks.filter((t) => t.t >= debut);
-      };
-      const noter = (nom, verif) => {
-        try {
-          verif();
-          resultats.push({ nom, ok: true, message: '' });
-        } catch (e) {
-          resultats.push({ nom, ok: false, message: e.message });
-        }
-      };
-      const rythme = (ticks, duree, contexte) => {
-        if (ticks.length > duree + 1) throw new Error(`${contexte} : ${ticks.length} requêtes /api/tick en ${duree} s (attendu : environ ${duree}).`);
-        if (ticks.length < duree - 1) throw new Error(`${contexte} : seulement ${ticks.length} requête(s) /api/tick en ${duree} s, le temps ne s'écoule plus.`);
-      };
-      const secondes = (ticks, attendu, contexte) => {
-        const autres = ticks.filter((t) => t.secondes !== attendu);
-        if (autres.length) throw new Error(`${contexte} : ${autres.length} tick(s) sur ${ticks.length} demandent ${autres[0].secondes} s au lieu de ${attendu}.`);
-      };
-
-      const cinq = await trouver(win, '[data-vitesse="5"]');
-      const un = await trouver(win, '[data-vitesse="1"]');
-      await attendre(200);
-
-      const depart = await fenetre(2000);
-      noter(noms[0], () => rythme(depart, 2, 'Au démarrage'));
-
-      cinq.click();
-      await attendre(300);
-      const rapide = await fenetre(2000);
-      noter(noms[1], () => rythme(rapide, 2, 'À ×5'));
-      noter(noms[2], () => secondes(rapide, 5, 'À ×5'));
-
-      un.click();
-      await attendre(300);
-      const retour = await fenetre(3000);
-      noter(noms[3], () => rythme(retour, 3, 'Retour à ×1'));
-      noter(noms[4], () => secondes(retour, 1, 'Retour à ×1'));
-      return resultats;
-    },
   };
 
   const echecGlobal = (id, message) => NOMS_FRONT[id].map((nom) => ({ nom, ok: false, message }));
@@ -1680,7 +1625,7 @@
       const cas = r ? r.tests : [];
       const ok = cas.filter((c) => c.ok).length;
       return `<section class="tache ${r && r.ok ? 'ok' : 'ko'}">
-        <div class="tache-tete"><span class="statut">${r && r.ok ? '✓' : '✕'}</span><div><h3>TODO ${t.id} · ${echapper(t.titre)}</h3><p>${t.niveau[0].toUpperCase() + t.niveau.slice(1)} · ${t.fichier}</p></div><b>${ok}/${cas.length}</b></div>
+        <div class="tache-tete"><span class="statut">${r && r.ok ? '✓' : '✕'}</span><div><h3>TODO ${t.id} · ${echapper(t.titre)}</h3><p>${t.fichier}</p></div><b>${ok}/${cas.length}</b></div>
         <ul>${cas.map((c) => `<li class="${c.ok ? 'ok' : 'ko'}"><span>${c.ok ? '✓' : '✕'}</span><div>${echapper(c.nom)}${!c.ok && c.message ? `<small>${echapper(c.message)}</small>` : ''}</div></li>`).join('')}</ul>
       </section>`;
     }).join('');

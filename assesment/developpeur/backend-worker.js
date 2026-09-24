@@ -252,7 +252,7 @@ def t3_fane(p, main):
     assert pl["sante"] == 0 and pl["vivante"] is False, f"Négligée à 3 de santé pendant 10 s : santé = {pl['sante']:g}, vivante = {pl['vivante']} (attendu : 0, False)."
 
 
-# TODO 5 : route /api/engrais
+# TODO 4 : route /api/engrais
 
 def _engrais(main):
     return main.app._handle("POST", "/api/engrais", None)
@@ -319,7 +319,7 @@ TESTS = {
         ("Négligée, la plante ne grandit pas", t3_pas_de_croissance),
         ("Sans santé, la plante fane", t3_fane),
     ],
-    "5": [
+    "4": [
         ("La première dose est acceptée", t5_premiere),
         ("Une deuxième dose immédiate est refusée (429)", t5_refus),
         ("La dose refusée ne fait pas grandir la plante", t5_refus_sans_effet),

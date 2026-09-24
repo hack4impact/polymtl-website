@@ -47,13 +47,10 @@ export default function Page() {
 
   // Le temps passe : chaque seconde, le backend simule `vitesse` secondes.
   useEffect(() => {
-    // TODO 4 (moyen) : après avoir changé la vitesse quelques fois, le temps s'emballe
-    // et revenir à ×1 ne ralentit plus rien. Ouvre l'onglet Réseau : combien de /api/tick par seconde ?
-    // Indice : la fonction passée à useEffect peut retourner une fonction de nettoyage,
-    // que React appelle avant de relancer l'effet.
-    setInterval(() => {
+    const id = setInterval(() => {
       api.tick(vitesse).then(setPlante).catch(afficherErreur);
     }, 1000);
+    return () => clearInterval(id);
   }, [vitesse]);
 
   async function agir(action: () => Promise<EtatPlante>, nom: Effet) {
